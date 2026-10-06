@@ -15,7 +15,7 @@ import csv, io, json
 from datetime import date
 import boto3
 
-BUCKET = "atividade2-guilherme-2026"
+BUCKET = "atividade2-guilherme2026"
 REGIAO = "us-east-2"
 HOJE = date.today().isoformat()
 

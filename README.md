@@ -17,8 +17,8 @@ camadas analíticas (Raw / Silver / Gold) e auditoria de metadados no Amazon Ath
 
 - Python 3.x com `pip install boto3`
 - Credenciais AWS configuradas (`aws configure` ou `python -m awscli configure`)
-- Bucket S3: `atividade2-guilherme-2026` (região us-east-2)
-- Athena com local de resultados: `s3://atividade2-guilherme-2026/athena-results/`
+- Bucket S3: `atividade2-guilherme2026` (região us-east-2)
+- Athena com local de resultados: `s3://atividade2-guilherme2026/athena-results/`
 
 ## Como executar
 
@@ -32,7 +32,7 @@ Depois, no Athena, executar os scripts SQL da seção abaixo.
 ## Estrutura de pastas no S3
 
 ```
-s3://atividade2-guilherme-2026/
+s3://atividade2-guilherme2026/
 ├── raw/
 │   ├── clientes/ingest_date=YYYY-MM-DD/clientes.csv
 │   ├── produtos/ingest_date=YYYY-MM-DD/produtos.csv
@@ -67,7 +67,7 @@ CREATE EXTERNAL TABLE IF NOT EXISTS atividade2.raw_pedidos (
 )
 PARTITIONED BY (ingest_date string)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
-LOCATION 's3://atividade2-guilherme-2026/raw/pedidos/'
+LOCATION 's3://atividade2-guilherme2026/raw/pedidos/'
 TBLPROPERTIES ('skip.header.line.count'='1');
 
 CREATE EXTERNAL TABLE IF NOT EXISTS atividade2.silver_fato_vendas (
@@ -77,7 +77,7 @@ CREATE EXTERNAL TABLE IF NOT EXISTS atividade2.silver_fato_vendas (
 )
 PARTITIONED BY (ingest_date string)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
-LOCATION 's3://atividade2-guilherme-2026/processed/fato_vendas/'
+LOCATION 's3://atividade2-guilherme2026/processed/fato_vendas/'
 TBLPROPERTIES ('skip.header.line.count'='1');
 
 MSCK REPAIR TABLE atividade2.raw_pedidos;

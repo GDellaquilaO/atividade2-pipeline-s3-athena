@@ -5,15 +5,15 @@ Gera massa de dados simulada (COM anomalias propositais) e sobe para o S3
 na camada RAW, particionada por data de ingestao (Hive Style).
 
 Estrutura gerada:
-s3://atividade2-guilherme-2026/raw/clientes/ingest_date=YYYY-MM-DD/clientes.csv
-s3://atividade2-guilherme-2026/raw/produtos/ingest_date=YYYY-MM-DD/produtos.csv
-s3://atividade2-guilherme-2026/raw/pedidos/ingest_date=YYYY-MM-DD/pedidos.csv
+s3://atividade2-guilherme2026/raw/clientes/ingest_date=YYYY-MM-DD/clientes.csv
+s3://atividade2-guilherme2026/raw/produtos/ingest_date=YYYY-MM-DD/produtos.csv
+s3://atividade2-guilherme2026/raw/pedidos/ingest_date=YYYY-MM-DD/pedidos.csv
 """
 import csv, io, random
 from datetime import date
 import boto3
 
-BUCKET = "atividade2-guilherme-2026"
+BUCKET = "atividade2-guilherme2026"
 REGIAO = "us-east-2"
 HOJE = date.today().isoformat()  # YYYY-MM-DD
 
